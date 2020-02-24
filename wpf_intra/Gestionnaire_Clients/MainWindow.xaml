@@ -12,10 +12,10 @@
             <Menu>
                 <MenuItem Header="_Ficher">
                     <MenuItem Header="Ouvrir..."></MenuItem>
-                    <MenuItem Header="Sauvegarder..."></MenuItem>
-                    <MenuItem Header="Fermer..."></MenuItem>
-                    <MenuItem Header="Nouveau client..."></MenuItem>
-                    <MenuItem Header="Quitter..."></MenuItem>
+                    <MenuItem Header="Sauvegarder"></MenuItem>
+                    <MenuItem Header="Fermer"></MenuItem>
+                    <MenuItem Header="Nouveau client"></MenuItem>
+                    <MenuItem Header="Quitter"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Édition"></MenuItem>
                 <MenuItem Header="Affichage"></MenuItem>
@@ -49,16 +49,16 @@
 
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="75" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
@@ -72,8 +72,8 @@
                      VerticalAlignment="Center" Margin="6"/>
 
                         <Label Grid.Row="2" Grid.Column="0"
-                Content="Ville :" VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentCustomer.City}"
+                Content="Province :" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentCustomer.Province}"
                      VerticalAlignment="Center" Margin="6"/>
 
                         <Label Grid.Row="3" Grid.Column="0"
@@ -89,6 +89,40 @@
                     </Grid>
 
                 </Grid>
+
+
+                <Grid Grid.Column="2">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                Content="Nom :" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentCustomer.LastName}"
+                     VerticalAlignment="Center" Margin="6"/>
+
+                        <Label Grid.Row="1" Grid.Column="0"
+                Content="Ville :" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentCustomer.City}"
+                     VerticalAlignment="Center" Margin="6"/>
+
+                    </Grid>
+
+                </Grid>
+
             </Grid>
         </StackPanel>
     </DockPanel>
