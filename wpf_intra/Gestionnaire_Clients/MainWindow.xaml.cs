@@ -90,7 +90,7 @@ namespace Gestionnaire_Clients
             CurrentCustomer = (Customer)lv.SelectedItem;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Remove_Click(object sender, RoutedEventArgs e)
         {
 
             int index = customers.IndexOf(CurrentCustomer);
@@ -105,6 +105,15 @@ namespace Gestionnaire_Clients
             }
 
             CurrentCustomer = customers[index];
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+            customers.Add(new Customer());
+
+            CurrentCustomer = customers[customers.Count - 1];
 
         }
 

@@ -14,7 +14,7 @@
                     <MenuItem Header="Ouvrir..."></MenuItem>
                     <MenuItem Header="Sauvegarder"></MenuItem>
                     <MenuItem Header="Fermer"></MenuItem>
-                    <MenuItem Header="Nouveau client"></MenuItem>
+                    <MenuItem Header="Nouveau client" Click="Add_Click"></MenuItem>
                     <MenuItem Header="Quitter"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Édition"></MenuItem>
@@ -29,7 +29,7 @@
                 <StackPanel Grid.Column="0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Liste des clients :" Margin="5"/>
-                        <Button Margin="5" Width="100" Content="Nouveau client"></Button>
+                        <Button Margin="5" Width="100" Content="Nouveau client" Click="Add_Click"></Button>
                     </StackPanel>
                     <ListView ItemsSource="{Binding customers}" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemTemplate>
@@ -138,7 +138,7 @@
 
                     <Grid Grid.Row="2" VerticalAlignment="Top">
 
-                        <Button Content="Supprimer client" Height="25" Click="Button_Click">
+                        <Button Content="Supprimer client" Height="25" Click="Remove_Click">
                             
                             
                         </Button>
