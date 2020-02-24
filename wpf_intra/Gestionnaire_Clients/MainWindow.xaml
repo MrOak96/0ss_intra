@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestionnaire_Clients"
         mc:Ignorable="d"
-        Title="Gestion de clients" Height="450" Width="800"
+        Title="Gestion de clients" Height="550" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <DockPanel>
+    <Grid>
         <StackPanel>
             <Menu>
                 <MenuItem Header="_Ficher">
@@ -27,7 +27,10 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Text="Liste des clients :" Margin="10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Liste des clients :" Margin="5"/>
+                        <Button Margin="5" Width="100" Content="Nouveau client"></Button>
+                    </StackPanel>
                     <ListView ItemsSource="{Binding customers}" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -39,11 +42,16 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Client sélectionné :" Margin="5"/>
+                        <TextBlock Text="{Binding CurrentCustomer.Name}" Margin="5"/>
+                        <TextBlock Text="{Binding CurrentCustomer.LastName}" Margin="5"/>
+                    </StackPanel>
                 </StackPanel>
                 <Grid Grid.Column="1">
 
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
+                        <RowDefinition Height="175"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
@@ -88,13 +96,20 @@
 
                     </Grid>
 
-                </Grid>
+                    <Grid Grid.Row="2">
 
+                        <Image Width="200" Height="200" Source="{Binding CurrentCustomer.PicturePath}">
+                            
+                        </Image>
+                        
+                    </Grid>
+
+                </Grid>
 
                 <Grid Grid.Column="2">
 
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
+                        <RowDefinition Height="175"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
@@ -121,9 +136,19 @@
 
                     </Grid>
 
+                    <Grid Grid.Row="2" VerticalAlignment="Top">
+
+                        <Button Content="Supprimer client" Height="25" Click="Button_Click">
+                            
+                            
+                        </Button>
+
+                    </Grid>
+
                 </Grid>
 
             </Grid>
+
         </StackPanel>
-    </DockPanel>
+    </Grid>
 </Window>

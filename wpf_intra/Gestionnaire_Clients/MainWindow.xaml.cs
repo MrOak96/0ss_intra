@@ -23,7 +23,7 @@ namespace Gestionnaire_Clients
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
 
         private Customer currentCustomer;
@@ -85,8 +85,27 @@ namespace Gestionnaire_Clients
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             ListView lv = (ListView)sender;
             CurrentCustomer = (Customer)lv.SelectedItem;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            int index = customers.IndexOf(CurrentCustomer);
+
+            customers.Remove(CurrentCustomer);
+
+            if(index > 0)
+            {
+
+                index--;
+
+            }
+
+            CurrentCustomer = customers[index];
+
         }
 
     }
