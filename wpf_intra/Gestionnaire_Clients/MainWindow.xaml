@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestionnaire_Clients"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Gestion de clients" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid Margin="6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="Liste des clients :" Margin="10"/>
+            <ListView ItemsSource="{Binding customers}" SelectedIndex="0" SelectionChanged="ListView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LastName}"></TextBlock>
+                            <TextBlock Text=", "></TextBlock>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <Grid Grid.Column="1">
 
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0"
+                Content="Prénom :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentCustomer.Name}"
+                     VerticalAlignment="Center" Margin="6"/>
+
+                <Label Grid.Row="1" Grid.Column="0"
+                Content="Adresse" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentCustomer.Address}"
+                     VerticalAlignment="Center" Margin="6"/>
+
+                <Label Grid.Row="2" Grid.Column="0"
+                Content="Ville :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentCustomer.City}"
+                     VerticalAlignment="Center" Margin="6"/>
+                
+                <Label Grid.Row="3" Grid.Column="0"
+                Content="Code postal:" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentCustomer.PostalCode}"
+                     VerticalAlignment="Center" Margin="6"/>
+                
+                <Label Grid.Row="4" Grid.Column="0"
+                Content="Contact :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentCustomer.ContactInfo}"
+                     VerticalAlignment="Center" Margin="6"/>
+
+            </Grid>
+
+        </Grid>
     </Grid>
 </Window>

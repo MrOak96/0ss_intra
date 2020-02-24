@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace intra_models
 {
     public class Customer
     {
+
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
@@ -14,5 +19,11 @@ namespace intra_models
         public string PicturePath { get; set; }
         public string Info { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
